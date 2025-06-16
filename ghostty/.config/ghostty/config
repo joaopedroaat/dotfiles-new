@@ -23,8 +23,8 @@ font-family = JetBrainsMono Nerd Font Mono
 # window-padding-x = 2
 #
 # Theme
-theme = light:rose-pine-dawn,dark:rose-pine
-# theme = rose-pine
+# theme = light:rose-pine-dawn,dark:rose-pine
+theme = rose-pine
 #
 # # Spacing around the equals sign does not matter.
 # # All of these are identical:
