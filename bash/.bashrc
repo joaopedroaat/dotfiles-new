@@ -21,6 +21,9 @@ export VISUAL="nvim"
 # Set vim mode
 set -o vi
 
+# Bat theme
+export BAT_THEME="base16"
+
 # Set up Starship
 # NEEDS TO BE ALWAYS AT THE BOTTOM
 eval "$(starship init bash)"
