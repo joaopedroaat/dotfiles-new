@@ -10,6 +10,8 @@ $git_status \
 
 palette = "rose-pine"
 
+add_newline = false
+
 [palettes.rose-pine]
 overlay = '#26233a'
 love = '#eb6f92'
@@ -57,7 +59,7 @@ behind = '[⇣\(${count}\)](fg:rose)'
 
 [username]
 disabled = false
-format = "[ 󰧱 $user ]($style)"
+format = "[󰧱 $user ]($style)"
 show_always = true
 style_root = "fg:iris"
 style_user = "fg:iris"
