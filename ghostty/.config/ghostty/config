@@ -3,4 +3,8 @@ font-family = JetBrainsMono Nerd Font
 font-size = 13
 
 # Theme
-theme = rose-pine
+theme = light:rose-pine-dawn,dark:rose-pine
+
+# Keys
+keybind = performable:ctrl+b>shift+5=new_split:right
+keybind = performable:ctrl+b>shift+'=new_split:down
