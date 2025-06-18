@@ -20,29 +20,12 @@ config.enable_wayland = false
 -- Set theme
 local rose_pine_plugin = wezterm.plugin.require("https://github.com/neapsix/wezterm")
 
-local function get_appearance()
-	if wezterm.gui then
-		return wezterm.gui.get_appearance()
-	end
-	return "Dark"
-end
+-- Determine theme based on appearance
+local current_appearance = wezterm.gui and wezterm.gui.get_appearance() or "Dark"
+local rose_pine_theme = (current_appearance:find("Dark")) and rose_pine_plugin.main or rose_pine_plugin.dawn
 
-local function get_rose_pine_variant(appearance)
-	if appearance:find("Dark") then
-		return rose_pine_plugin.main
-	else
-		return rose_pine_plugin.dawn
-	end
-end
-
-local current_theme_variant_function = get_rose_pine_variant(get_appearance())
-
-config.colors = current_theme_variant_function.colors()
-config.window_frame = current_theme_variant_function.window_frame()
-
-wezterm.on("theme-changed", function(window, pane)
-	local current_appearance = get_appearance()
-end)
+config.colors = rose_pine_theme.colors()
+config.window_frame = rose_pine_theme.window_frame()
 
 -- Finally, return the configuration to wezterm:
 return config
