@@ -3,4 +3,4 @@ font-family = JetBrainsMono Nerd Font
 font-size = 13
 
 # Theme
-theme = light:rose-pine-dawn,dark:rose-pine
+theme = light:GruvboxLight,dark:GruvboxDark

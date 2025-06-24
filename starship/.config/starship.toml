@@ -5,25 +5,13 @@ $username\
 $directory\
 $git_branch\
 $git_status \
-[#](fg:iris) \
+[#](white) \
 """
-
-palette = "rose-pine"
 
 add_newline = false
 
-[palettes.rose-pine]
-overlay = '#26233a'
-love = '#eb6f92'
-gold = '#f6c177'
-rose = '#ebbcba'
-pine = '#31748f'
-foam = '#9ccfd8'
-iris = '#c4a7e7'
-
 [directory]
-format = "[ $path ]($style)"
-style = "fg:pine"
+format = "[ $path ](bright-white)"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -33,33 +21,25 @@ Downloads = " "
 Music = " "
 Pictures = " "
 
-[fill]
-style = "fg:overlay"
-symbol = " "
-
 [git_branch]
-format = "[ $symbol $branch ]($style)"
-style = "fg:foam"
+format = "[ $symbol $branch ](bold green)"
 symbol = ""
 
 [git_status]
 disabled = false
-style = "fg:love"
-format = '[$all_status$ahead_behind]($style)'
-up_to_date = '[ ✓ ](fg:iris)'
-untracked = '[?\($count\)](fg:gold)'
-stashed = '[\$](fg:iris)'
-modified = '[!\($count\)](fg:gold)'
-renamed = '[»\($count\)](fg:iris)'
-deleted = '[✘\($count\)](style)'
-staged = '[++\($count\)](fg:gold)'
-ahead = '[⇡\(${count}\)](fg:foam)'
-diverged = '⇕[\[](fg:iris)[⇡\(${ahead_count}\)](fg:foam)[⇣\(${behind_count}\)](fg:rose)[\]](fg:iris)'
-behind = '[⇣\(${count}\)](fg:rose)'
+format = '[$all_status$ahead_behind](bold cyan)'
+up_to_date = '[ ✓ ](bright purple)'
+untracked = '[?\($count\)](bright-yellow)'
+stashed = '[\$](bright-purple)'
+modified = '[!\($count\)](bright-yellow)'
+renamed = '[»\($count\)](bright-purple)'
+deleted = '[✘\($count\)](bright-red)'
+staged = '[++\($count\)](bright-yellow)'
+ahead = '[⇡\(${count}\)](bright-cyan)'
+behind = '[⇣\(${count}\)](bright-red)'
+diverged = '⇕[\[](bright-purple)[⇡\(${ahead_count}\)](bright-cyan)[⇣\(${behind_count}\)](red)[\]](bold magenta)'
 
 [username]
 disabled = false
-format = "[󰧱 $user ]($style)"
+format = "[$user](bright-purple)"
 show_always = true
-style_root = "fg:iris"
-style_user = "fg:iris"
