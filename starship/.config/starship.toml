@@ -1,17 +1,16 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
-$username\
-$directory\
-$git_branch\
-$git_status \
-[#](white) \
+$username \
+$directory \
+$git_branch \
+[󰁔](bold green) \
 """
 
 add_newline = false
 
 [directory]
-format = "[ $path ](bright-white)"
+format = "[$path](cyan)"
 truncation_length = 3
 truncation_symbol = "…/"
 
@@ -22,22 +21,8 @@ Music = " "
 Pictures = " "
 
 [git_branch]
-format = "[ $symbol $branch ](bold green)"
+format = "[$symbol $branch](bold green)"
 symbol = ""
-
-[git_status]
-disabled = false
-format = '[$all_status$ahead_behind](bold cyan)'
-up_to_date = '[ ✓ ](bright purple)'
-untracked = '[?\($count\)](bright-yellow)'
-stashed = '[\$](bright-purple)'
-modified = '[!\($count\)](bright-yellow)'
-renamed = '[»\($count\)](bright-purple)'
-deleted = '[✘\($count\)](bright-red)'
-staged = '[++\($count\)](bright-yellow)'
-ahead = '[⇡\(${count}\)](bright-cyan)'
-behind = '[⇣\(${count}\)](bright-red)'
-diverged = '⇕[\[](bright-purple)[⇡\(${ahead_count}\)](bright-cyan)[⇣\(${behind_count}\)](red)[\]](bold magenta)'
 
 [username]
 disabled = false
