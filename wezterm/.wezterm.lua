@@ -8,29 +8,46 @@ config.font = wezterm.font({
 config.font_size = 14
 
 -- Theme settings
-config.color_scheme = "GruvboxDark"
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Dark"
+end
+
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Rosé Pine (base16)"
+	else
+		return "Rosé Pine Dawn (base16)"
+	end
+end
+
+local scheme_name = scheme_for_appearance(get_appearance())
+local scheme = wezterm.color.get_builtin_schemes()[scheme_name]
+config.color_scheme = scheme_name
 config.colors = {
 	tab_bar = {
 		background = "transparent",
 		active_tab = {
 			bg_color = "transparent",
-			fg_color = "#d79921",
+			fg_color = scheme.brights[4],
 		},
 		inactive_tab = {
 			bg_color = "transparent",
-			fg_color = "#928374",
+			fg_color = scheme.brights[1],
 		},
 		inactive_tab_hover = {
-			bg_color = "#665c54",
-			fg_color = "#ebdbb2",
+			bg_color = scheme.selection_bg,
+			fg_color = scheme.selection_fg,
 		},
 		new_tab = {
 			bg_color = "transparent",
-			fg_color = "#928374",
+			fg_color = scheme.brights[2],
 		},
 		new_tab_hover = {
-			bg_color = "#665c54",
-			fg_color = "#ebdbb2",
+			bg_color = scheme.selection_bg,
+			fg_color = scheme.selection_fg,
 		},
 	},
 }
@@ -41,7 +58,7 @@ config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = false
-config.window_background_opacity = 0.8
+config.window_background_opacity = (get_appearance():find("Dark") and 0.9 or 1.0)
 config.default_cursor_style = "BlinkingBar"
 config.cursor_blink_rate = 500
 config.cursor_thickness = "0.1pt"
@@ -238,7 +255,7 @@ end
 
 wezterm.on("update-right-status", function(window, pane)
 	local workspace_module = {
-		{ Foreground = { AnsiColor = "Silver" } },
+		{ Foreground = { Color = scheme.indexed[20] } },
 		{ Text = " " .. window:active_workspace() },
 		"ResetAttributes",
 	}
@@ -248,12 +265,12 @@ wezterm.on("update-right-status", function(window, pane)
 	}
 
 	local separator_module = {
-		{ Foreground = { AnsiColor = "Silver" } },
+		{ Foreground = { Color = scheme.indexed[20] } },
 		{ Text = " | " },
 		"ResetAttributes",
 	}
 	local separator_ns_module = {
-		{ Foreground = { AnsiColor = "Silver" } },
+		{ Foreground = { Color = scheme.indexed[20] } },
 		{ Text = "| " },
 		"ResetAttributes",
 	}
@@ -261,22 +278,22 @@ wezterm.on("update-right-status", function(window, pane)
 	local leader_module = (function()
 		if window:leader_is_active() then
 			return {
-				{ Foreground = { AnsiColor = "Black" } },
-				{ Background = { AnsiColor = "Olive" } },
+				{ Foreground = { Color = scheme.background } },
+				{ Background = { Color = scheme.indexed[16] } },
 				{ Text = " WEZ " },
 				"ResetAttributes",
 			}
 		end
 		-- Leader key is not active, return the module with normal styling
 		return {
-			{ Foreground = { AnsiColor = "Olive" } },
+			{ Foreground = { Color = scheme.indexed[16] } },
 			{ Text = " WEZ " },
 			"ResetAttributes",
 		}
 	end)()
 
 	local pane_application_module = {
-		{ Foreground = { AnsiColor = "Aqua" } },
+		{ Foreground = { Color = scheme.ansi[7] } },
 		{ Text = " " .. basename(pane:get_foreground_process_name()) },
 		"ResetAttributes",
 	}
@@ -295,7 +312,7 @@ wezterm.on("update-right-status", function(window, pane)
 	)
 
 	local date_module = {
-		{ Foreground = { AnsiColor = "Silver" } },
+		{ Foreground = { Color = scheme.indexed[20] } },
 		{ Text = wezterm.strftime("%R 󰃰") },
 		"ResetAttributes",
 	}
