@@ -61,6 +61,10 @@ config.hide_tab_bar_if_only_one_tab = false
 config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = false
+config.window_background_opacity = 0.8
+config.window_padding = {
+	bottom = 0,
+}
 
 -- Keybinds
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
