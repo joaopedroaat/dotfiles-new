@@ -278,7 +278,7 @@ wezterm.on("update-right-status", function(window, pane)
 	local leader_module = (function()
 		if window:leader_is_active() then
 			return {
-				{ Foreground = { Color = scheme.background } },
+				{ Foreground = { Color = "transparent" } },
 				{ Background = { Color = scheme.indexed[16] } },
 				{ Text = " WEZ " },
 				"ResetAttributes",
