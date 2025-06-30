@@ -11,46 +11,26 @@ config.font_size = 14
 config.color_scheme = "GruvboxDark"
 config.colors = {
 	tab_bar = {
-		background = "#282828",
-
-		-- Current tab
+		background = "transparent",
 		active_tab = {
-			bg_color = "#282828",
+			bg_color = "transparent",
 			fg_color = "#d79921",
-			underline = "Single",
 		},
-
-		-- Other tabs
 		inactive_tab = {
-			bg_color = "#282828",
+			bg_color = "transparent",
 			fg_color = "#928374",
 		},
-
-		-- Hover effect on inactive tabs
 		inactive_tab_hover = {
-			bg_color = "#282828",
-			fg_color = "#928374",
-			underline = "Single",
-
-			-- The same options that were listed under the `active_tab` section above
-			-- can also be used for `inactive_tab_hover`.
+			bg_color = "#665c54",
+			fg_color = "#ebdbb2",
 		},
-
-		-- The new tab button that let you create new tabs
 		new_tab = {
-			bg_color = "#282828",
+			bg_color = "transparent",
 			fg_color = "#928374",
 		},
-
-		-- You can configure some alternate styling when the mouse pointer
-		-- moves over the new tab button
 		new_tab_hover = {
 			bg_color = "#665c54",
 			fg_color = "#ebdbb2",
-			italic = true,
-
-			-- The same options that were listed under the `active_tab` section above
-			-- can also be used for `new_tab_hover`.
 		},
 	},
 }
@@ -62,14 +42,14 @@ config.tab_bar_at_bottom = true
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = false
 config.window_background_opacity = 0.8
-config.window_padding = {
-	bottom = 0,
-}
 config.default_cursor_style = "BlinkingBar"
 config.cursor_blink_rate = 500
 config.cursor_thickness = "0.1pt"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
+config.window_padding = {
+	bottom = 0,
+}
 
 -- Keybinds
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
