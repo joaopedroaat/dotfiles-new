@@ -65,6 +65,9 @@ config.cursor_thickness = "0.1pt"
 config.cursor_blink_ease_in = "Constant"
 config.cursor_blink_ease_out = "Constant"
 config.window_padding = {
+	top = 0,
+	left = 0,
+	right = 0,
 	bottom = 0,
 }
 
