@@ -65,6 +65,11 @@ config.window_background_opacity = 0.8
 config.window_padding = {
 	bottom = 0,
 }
+config.default_cursor_style = "BlinkingBar"
+config.cursor_blink_rate = 500
+config.cursor_thickness = "0.1pt"
+config.cursor_blink_ease_in = "Constant"
+config.cursor_blink_ease_out = "Constant"
 
 -- Keybinds
 config.leader = { key = "b", mods = "CTRL", timeout_milliseconds = 2000 }
